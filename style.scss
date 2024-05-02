@@ -103,18 +103,21 @@ header {
 }
 
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  height: 100vh;
+  min-height: 110vh; // Changed to min-height to ensure content does not cut off
   background-image: url("./assets/RedditHero.jpg"),
     linear-gradient(180deg, #82460f 0%, #3e1d00 100%);
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
-  padding: 0 2rem;
+  padding: 0 5rem;
+  padding-bottom: 20px; // Added padding at the bottom
   text-align: left;
+  overflow: hidden; // Ensures nothing spills outside the section
 
   .title-container {
     display: flex;
@@ -140,6 +143,15 @@ header {
     margin-top: 1rem;
     font-size: 1.5rem;
     max-width: 600px;
+  }
+
+  svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 9999999; // Ensures it doesn't overlap clickable elements above
   }
 }
 
@@ -265,7 +277,7 @@ $primary-color: #ff4500; // Bright orange for interactive elements
 
 .history-section {
   padding: 4rem 0;
-  background-color: rgba(10, 25, 47, 0.85); // Darker background for depth
+  background-color: #0b1416; // Darker background for depth
   color: $color-white;
   text-align: center;
   position: relative;
@@ -294,10 +306,6 @@ $primary-color: #ff4500; // Bright orange for interactive elements
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     object-fit: cover;
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px lighten($primary-color, 20%);
-    }
   }
 
   .history-content,
@@ -337,7 +345,7 @@ $primary-color: #ff4500; // Bright orange for interactive elements
       margin: 5% auto;
       padding: 20px;
       border: none;
-      width: 50%;
+      width: 70%; // Adjusted for better layout
       box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
       border-radius: 10px;
       animation: modalIn 0.3s ease-out;
@@ -375,23 +383,27 @@ $primary-color: #ff4500; // Bright orange for interactive elements
 
       .modal-body {
         display: flex;
-        justify-content: space-around;
+        align-items: center;
+        justify-content: space-between;
         margin-bottom: 20px;
+
+        .modal-image {
+          width: 40%; // Smaller, square
+          border-radius: 10px;
+          object-fit: cover;
+        }
 
         .modal-text {
           flex: 1;
-          margin: 0 10px;
+          margin-left: 20px; // Space between image and text
           padding: 10px;
           background: rgba(255, 255, 255, 0.1);
           border-radius: 5px;
           color: $color-white;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
         }
-      }
-
-      .modal-image {
-        width: 100%;
-        border-radius: 10px;
-        margin-top: 20px;
       }
     }
   }

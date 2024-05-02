@@ -84,17 +84,20 @@ header nav img {
 }
 
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  height: 100vh;
+  min-height: 110vh;
   background-image: url("./assets/RedditHero.jpg"), linear-gradient(180deg, #82460f 0%, #3e1d00 100%);
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
-  padding: 0 2rem;
+  padding: 0 5rem;
+  padding-bottom: 20px;
   text-align: left;
+  overflow: hidden;
 }
 .hero .title-container {
   display: flex;
@@ -117,6 +120,14 @@ header nav img {
   margin-top: 1rem;
   font-size: 1.5rem;
   max-width: 600px;
+}
+.hero svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 9999999;
 }
 
 @keyframes cursor {
@@ -221,7 +232,7 @@ header nav img {
 
 .history-section {
   padding: 4rem 0;
-  background-color: rgba(10, 25, 47, 0.85);
+  background-color: #0b1416;
   color: #fff;
   text-align: center;
   position: relative;
@@ -249,10 +260,6 @@ header nav img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   -o-object-fit: cover;
      object-fit: cover;
-}
-.history-section .history-content img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #ff8f66;
 }
 .history-section .history-content,
 .history-section .modal-button {
@@ -290,7 +297,7 @@ header nav img {
   margin: 5% auto;
   padding: 20px;
   border: none;
-  width: 50%;
+  width: 70%;
   box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   animation: modalIn 0.3s ease-out;
@@ -325,21 +332,26 @@ header nav img {
 }
 .history-section .modal .modal-content .modal-body {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
+}
+.history-section .modal .modal-content .modal-body .modal-image {
+  width: 40%;
+  border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .history-section .modal .modal-content .modal-body .modal-text {
   flex: 1;
-  margin: 0 10px;
+  margin-left: 20px;
   padding: 10px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   color: #fff;
-}
-.history-section .modal .modal-content .modal-image {
-  width: 100%;
-  border-radius: 10px;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .pricing-section {
