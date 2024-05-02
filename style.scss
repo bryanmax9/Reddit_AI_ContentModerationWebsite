@@ -182,7 +182,7 @@ header {
     position: absolute;
     bottom: -5rem; // Adjust this value to match the padding-bottom of the parent
     left: -5rem;
-    width: 130%; // Ensures SVG stretches across the entire section
+    width: 115%; // Ensures SVG stretches across the entire section
     height: auto; // Maintains the aspect ratio of the SVG
     z-index: 999; // Optional, ensures the SVG stays behind other content if necessary
   }
