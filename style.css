@@ -142,11 +142,21 @@ header nav img {
 }
 /* Feature Section Styles */
 .feature-section {
+  position: relative;
   display: flex;
-  justify-content: space-around; /* Keeps existing spacing for wider screens */
+  justify-content: space-around;
   align-items: flex-start;
   gap: 20px;
   margin: 80px;
+  padding-bottom: 8rem;
+}
+.feature-section .bottom-svg {
+  position: absolute;
+  bottom: -5rem;
+  left: -5rem;
+  width: 130%;
+  height: auto;
+  z-index: 999;
 }
 
 .feature {
@@ -154,19 +164,19 @@ header nav img {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  flex-basis: 45%; /* Assigns flexible base size for each feature */
+  flex-basis: 45%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Keeps content of .feature centered */
+  align-items: center;
   transition: transform 0.65s ease-in-out;
 }
 .feature:hover {
   cursor: pointer;
-  transform: translateY(-0.7rem); /* Use negative value to move up */
+  transform: translateY(-0.7rem);
 }
 .feature .feature-image-container {
-  width: 100%; /* Full width of the container */
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  width: 100%;
+  padding-top: 56.25%;
   position: relative;
 }
 .feature .feature-image {
@@ -176,9 +186,9 @@ header nav img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover; /* Keeps aspect ratio and fills the block */
-  border-top-left-radius: 20px; /* Rounded corners at the top */
-  border-top-right-radius: 20px; /* Rounded corners at the top */
+     object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .feature h2,
 .feature p {
@@ -209,25 +219,57 @@ header nav img {
   color: #fff;
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-decoration: line-through;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.command-line-section .section-title:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: #ff6a33;
 }
 .command-line-section .section-subtitle {
   color: #fff;
   margin-bottom: 2rem;
   font-size: 2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
-.command-line-section .command-line-block {
-  display: inline-block;
-  background-color: gray;
+.command-line-section .section-subtitle:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: #ff6a33;
+}
+.command-line-section .content-block {
+  width: 100%;
+  margin: 2rem 0;
+}
+.command-line-section .content-block .content-subtitle {
+  color: #ff4500;
+  font-size: 1.5rem;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.command-line-section .content-block .content-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  margin: 1rem 0;
+}
+.command-line-section .content-block .content-body .content-image-left,
+.command-line-section .content-block .content-body .content-image-right {
+  width: 50%;
+  height: auto;
+}
+.command-line-section .content-block .content-body .content-paragraph-right,
+.command-line-section .content-block .content-body .content-paragraph-left {
+  width: 45%;
   color: #fff;
-  padding: 1rem;
-  border-radius: 4px;
-  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2rem;
 }
-.command-line-section .command-line-block code {
-  -webkit-user-select: all;
-     -moz-user-select: all;
-          user-select: all;
+.command-line-section .content-paragraph-right {
+  text-align: right;
+}
+.command-line-section .content-paragraph-left {
+  text-align: left;
 }
 
 .history-section {
@@ -277,7 +319,7 @@ header nav img {
 }
 .history-section .modal-button:hover {
   background-color: #cc3700;
-  transform: translateY(-0.3rem);
+  transform: scale(1.1);
 }
 .history-section .modal {
   display: none;

@@ -171,11 +171,21 @@ header {
 
 /* Feature Section Styles */
 .feature-section {
+  position: relative; // Needed to position the SVG absolutely within the section
   display: flex;
-  justify-content: space-around; /* Keeps existing spacing for wider screens */
+  justify-content: space-around;
   align-items: flex-start;
   gap: 20px;
   margin: 80px;
+  padding-bottom: 8rem; // Make sure there's enough space for the SVG
+  .bottom-svg {
+    position: absolute;
+    bottom: -5rem; // Adjust this value to match the padding-bottom of the parent
+    left: -5rem;
+    width: 130%; // Ensures SVG stretches across the entire section
+    height: auto; // Maintains the aspect ratio of the SVG
+    z-index: 999; // Optional, ensures the SVG stays behind other content if necessary
+  }
 }
 
 .feature {
@@ -183,20 +193,20 @@ header {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  flex-basis: 45%; /* Assigns flexible base size for each feature */
+  flex-basis: 45%; // Assigns flexible base size for each feature
   display: flex;
   flex-direction: column;
-  align-items: center; /* Keeps content of .feature centered */
+  align-items: center; // Keeps content of .feature centered
   transition: transform 0.65s ease-in-out;
 
   &:hover {
     cursor: pointer;
-    transform: translateY(-0.7rem); /* Use negative value to move up */
+    transform: translateY(-0.7rem); // Use negative value to move up
   }
 
   .feature-image-container {
-    width: 100%; /* Full width of the container */
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    width: 100%; // Full width of the container
+    padding-top: 56.25%; // 16:9 Aspect Ratio
     position: relative;
   }
 
@@ -206,9 +216,9 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Keeps aspect ratio and fills the block */
-    border-top-left-radius: 20px; /* Rounded corners at the top */
-    border-top-right-radius: 20px; /* Rounded corners at the top */
+    object-fit: cover; // Keeps aspect ratio and fills the block
+    border-top-left-radius: 20px; // Rounded corners at the top
+    border-top-right-radius: 20px; // Rounded corners at the top
   }
 
   h2,
@@ -229,11 +239,9 @@ header {
   }
 }
 
-// Command Line Section Styles
 $background-dark: #0a0a23;
 $text-color: #fff;
 
-// Command Line Section Styles
 .command-line-section {
   display: flex;
   flex-direction: column;
@@ -248,26 +256,67 @@ $text-color: #fff;
     color: $text-color;
     font-size: 2rem;
     margin-bottom: 1rem;
-    text-decoration: line-through;
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      color: lighten(#ff4500, 10%);
+    }
   }
 
   .section-subtitle {
     color: $text-color;
     margin-bottom: 2rem;
     font-size: 2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      color: lighten(#ff4500, 10%);
+    }
   }
 
-  .command-line-block {
-    display: inline-block;
-    background-color: gray;
-    color: $text-color;
-    padding: 1rem;
-    border-radius: 4px;
-    font-family: "Courier New", Courier, monospace;
+  .content-block {
+    width: 100%;
+    margin: 2rem 0;
 
-    code {
-      user-select: all;
+    .content-subtitle {
+      color: #ff4500;
+      font-size: 1.5rem;
+      text-align: left;
+      margin-bottom: 1rem;
     }
+
+    .content-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      margin: 1rem 0;
+
+      .content-image-left,
+      .content-image-right {
+        width: 50%;
+        height: auto;
+      }
+
+      .content-paragraph-right,
+      .content-paragraph-left {
+        width: 45%;
+        color: $text-color;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .content-paragraph-right {
+    text-align: right;
+  }
+
+  .content-paragraph-left {
+    text-align: left;
   }
 }
 
@@ -324,7 +373,7 @@ $primary-color: #ff4500; // Bright orange for interactive elements
     transition: background-color 0.3s ease, transform 0.3s ease;
     &:hover {
       background-color: darken($primary-color, 10%);
-      transform: translateY(-0.3rem);
+      transform: scale(1.1);
     }
   }
 
