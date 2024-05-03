@@ -397,70 +397,62 @@ header nav img {
 }
 
 .pricing-section {
-  padding: 2rem;
-  padding-top: 10rem;
-  padding-bottom: 15rem;
-  background-color: #1a1a1a;
-  color: #fff;
   position: relative;
+  padding: 18rem 2rem;
+  background-color: #0b1416;
+  color: #fff;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
 }
-.pricing-section .top-svg {
-  position: absolute;
-  top: -5rem;
-  left: 0;
-  width: 100%;
-  height: auto;
-  z-index: 1;
-}
+.pricing-section .top-svg,
 .pricing-section .bottom-svg {
   position: absolute;
+  top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
   width: 100%;
   height: auto;
+  z-index: 9999;
 }
-.pricing-section .section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.pricing-section .bottom-svg {
+  top: auto;
 }
-.pricing-section .section-subtitle {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+.pricing-section .content-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
 }
-.pricing-section .pricing-table {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border: 1px solid #333;
-  border-radius: 8px;
-  overflow: hidden;
+.pricing-section .content-layout .title-area {
+  flex: 1;
+  margin-right: 20px;
 }
-.pricing-section .pricing-table .pricing-feature {
-  grid-column: 1/span 1;
-  border-bottom: 1px solid #333;
-  padding: 1rem;
-  background-color: #333;
+.pricing-section .content-layout .section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0.5em;
 }
-.pricing-section .pricing-table .pricing-plan {
-  grid-column: span 1;
-  text-align: center;
-  border-bottom: 1px solid #333;
-  padding: 1rem;
-  background-color: #222;
+.pricing-section .content-layout .phone-image {
+  flex: 0 0 45%;
+  height: 700px;
+  background-image: url("./assets/redditApp.jpg");
+  background-size: cover;
+  background-position: center;
 }
-.pricing-section .pricing-table .pricing-detail {
-  padding: 1rem;
-  border-bottom: 1px solid #333;
-  text-align: center;
+.pricing-section .content-layout .info-texts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  margin-left: 20px;
 }
-.pricing-section .pricing-table .pricing-detail:nth-child(3n+2) {
-  border-left: 1px solid #333;
-}
-.pricing-section .pricing-table .pricing-detail:nth-last-child(-n+3) {
-  border-bottom: none;
+.pricing-section .content-layout .info-texts p {
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 /* Usage Section Styling */

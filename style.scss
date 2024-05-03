@@ -459,76 +459,67 @@ $primary-color: #ff4500; // Bright orange for interactive elements
 }
 
 .pricing-section {
-  padding: 2rem;
-  padding-top: 10rem;
-  padding-bottom: 15rem;
-  background-color: #1a1a1a;
+  position: relative;
+  padding: 18rem 2rem; // Padding for aesthetic spacing
+  background-color: #0b1416;
   color: #fff;
-  position: relative; // This ensures that the absolutely positioned SVG is relative to this container
-  overflow: hidden; // Ensures that nothing spills out of the section
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
 
-  .top-svg {
-    position: absolute;
-    top: -5rem;
-    left: 0;
-    width: 100%;
-    height: auto; // This makes sure the SVG is full width and keeps its aspect ratio
-    z-index: 1; // This ensures the SVG is above the other content but you might need to adjust this based on your z-index usage
-  }
+  .top-svg,
   .bottom-svg {
     position: absolute;
-    bottom: 0;
-    left: 0; // This will align the SVG to the left edge of the section
-    right: 0; // This will stretch the SVG to the right edge of the section
+    top: 0; // top for the top SVG
+    bottom: 0; // bottom for the bottom SVG
     width: 100%;
     height: auto;
+    z-index: 9999;
   }
 
-  .section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  .bottom-svg {
+    top: auto;
   }
 
-  .section-subtitle {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
+  .content-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; // Control the maximum width of the content
 
-  .pricing-table {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border: 1px solid #333;
-    border-radius: 8px;
-    overflow: hidden;
-
-    .pricing-feature {
-      grid-column: 1 / span 1;
-      border-bottom: 1px solid #333;
-      padding: 1rem;
-      background-color: #333;
+    .title-area {
+      flex: 1;
+      margin-right: 20px;
     }
 
-    .pricing-plan {
-      grid-column: span 1;
-      text-align: center;
-      border-bottom: 1px solid #333;
-      padding: 1rem;
-      background-color: #222;
+    .section-title {
+      font-size: 24px; // Larger font for visibility
+      font-weight: bold;
+      margin-bottom: 0.5em;
     }
 
-    .pricing-detail {
-      padding: 1rem;
-      border-bottom: 1px solid #333;
-      text-align: center;
+    .phone-image {
+      flex: 0 0 45%; // Increased fixed flex basis with no growth or shrink
+      height: 700px; // Adjust height to make it a tall rectangle
+      background-image: url("./assets/redditApp.jpg");
+      background-size: cover;
+      background-position: center;
+    }
 
-      &:nth-child(3n + 2) {
-        border-left: 1px solid #333;
-      }
+    .info-texts {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%; // Match the height of the phone image for alignment
+      margin-left: 20px;
 
-      &:nth-last-child(-n + 3) {
-        border-bottom: none;
+      p {
+        font-size: 16px; // Smaller font size for the paragraphs
+        line-height: 1.5; // Increased line-height for readability
       }
     }
   }
