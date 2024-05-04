@@ -250,7 +250,7 @@ $text-color: #fff;
   text-align: center;
   background-color: black;
   padding: 10rem;
-  padding-bottom: 7rem;
+  padding-bottom: 1rem;
 
   .section-title {
     color: $text-color;
@@ -532,80 +532,147 @@ $primary-color: #ff4500; // Bright orange for interactive elements
 
 /* Usage Section Styling */
 .usage-section {
-  background-color: black;
-  color: white;
+  background-color: black; // Using a softer black for modern look
+  color: #fff;
   text-align: center;
   padding: 4em 0;
-  padding-top: 1rem;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
-  padding-top: 9rem;
-  padding-bottom: 9rem;
+}
+
+.usage-title,
+.usage-subtitle {
+  transition: transform 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    color: #ff4500;
+    transform: scale(1.05);
+  }
 }
 
 .usage-title {
   font-size: 2.5em;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .usage-subtitle {
-  font-size: 1.7em;
+  font-size: 1.5em;
   margin-bottom: 2em;
-  transition: transform 0.7s ease-in-out;
-
-  &:hover {
-    cursor: pointer;
-    color: wheat;
-    transform: translateY(-0.5rem);
-  }
 }
 
 .commands-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 5rem;
+  gap: 2rem;
   justify-content: center;
 }
 
 .command-block {
-  flex-basis: calc(33.3% - 20px); // Subtract gap from width
-  max-width: calc(33.333% - 20px); // Subtract gap from width
-  background-color: darken(gray, 10%);
-  padding: 1em;
-  border-radius: 5%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  text-align: left;
-  transition: transform 0.65s ease-in-out;
+  flex: 1 1 290px; // flex-grow, flex-shrink, flex-basis
+  background-color: #1a1a1a; // Slightly lighter than the section for contrast
+  padding: 2em;
+  border-radius: 8px; // More modern, rounded corners
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 
   &:hover {
-    cursor: pointer;
-    transform: translateY(-0.7rem); // Use negative value to move up
+    transform: translateY(-10px);
   }
 
   .command-title {
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
+    font-size: 1.4em;
+    margin-bottom: 0.8em;
   }
 
   .command-description {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
   }
 
-  .command-line {
-    background-color: lighten(black, 5%);
-    padding: 1em;
-    border-radius: 5%;
+  .command-image {
+    width: 100%;
+    height: 300px; // Fixed height for consistent design
+    object-fit: cover; // Ensures the image covers the set dimensions without distortion
+    border-radius: 5px; // Rounded corners for images
+  }
+}
 
-    code {
-      color: wheat;
-      b {
-        color: lightblue;
-      }
+// Summoner Information Section Styles
+.summoner-info-section {
+  position: relative;
+  height: 50rem; // Adjust height as per your design needs
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+
+  .background-image-container {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    background: url("./assets/RedditConclusion.webp") no-repeat center
+      center/cover;
+    overflow: hidden;
+
+    .blur-overlay {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.8) 70%,
+        transparent 100%
+      );
+      backdrop-filter: blur(10px); // Adjust the blur level as needed
+      clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
     }
+  }
+
+  .content-container {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%; // Adjust based on content size
+    color: #333;
+
+    .section-title {
+      font-size: 2rem;
+      color: inherit;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-description {
+      font-size: 1rem;
+      color: inherit;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .summoner-info-section .content-container {
+    width: 80%; // More width on smaller screens
+  }
+}
+
+// Add responsive adjustments as needed
+@media (max-width: 768px) {
+  .summoner-info-section .content-container {
+    left: 50%; // Center on smaller screens
+    width: 90%; // More width on smaller screens
+  }
+}
+
+// Responsive adjustments for smaller screens
+@media (max-width: 768px) {
+  .summoner-section .form-box {
+    width: 80%;
   }
 }
 

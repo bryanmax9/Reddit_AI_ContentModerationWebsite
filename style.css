@@ -213,7 +213,7 @@ header nav img {
   text-align: center;
   background-color: black;
   padding: 10rem;
-  padding-bottom: 7rem;
+  padding-bottom: 1rem;
 }
 .command-line-section .section-title {
   color: #fff;
@@ -463,76 +463,133 @@ header nav img {
 /* Usage Section Styling */
 .usage-section {
   background-color: black;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 4em 0;
-  padding-top: 1rem;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
-  padding-top: 9rem;
-  padding-bottom: 9rem;
+}
+
+.usage-title,
+.usage-subtitle {
+  transition: transform 0.3s ease;
+}
+.usage-title:hover,
+.usage-subtitle:hover {
+  cursor: pointer;
+  color: #ff4500;
+  transform: scale(1.05);
 }
 
 .usage-title {
   font-size: 2.5em;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .usage-subtitle {
-  font-size: 1.7em;
+  font-size: 1.5em;
   margin-bottom: 2em;
-  transition: transform 0.7s ease-in-out;
-}
-.usage-subtitle:hover {
-  cursor: pointer;
-  color: wheat;
-  transform: translateY(-0.5rem);
 }
 
 .commands-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 5rem;
+  gap: 2rem;
   justify-content: center;
 }
 
 .command-block {
-  flex-basis: calc(33.3% - 20px);
-  max-width: calc(33.333% - 20px);
-  background-color: #676767;
-  padding: 1em;
-  border-radius: 5%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  text-align: left;
-  transition: transform 0.65s ease-in-out;
+  flex: 1 1 290px;
+  background-color: #1a1a1a;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 .command-block:hover {
-  cursor: pointer;
-  transform: translateY(-0.7rem);
+  transform: translateY(-10px);
 }
 .command-block .command-title {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
+  font-size: 1.4em;
+  margin-bottom: 0.8em;
 }
 .command-block .command-description {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
-.command-block .command-line {
-  background-color: #0d0d0d;
-  padding: 1em;
-  border-radius: 5%;
-}
-.command-block .command-line code {
-  color: wheat;
-}
-.command-block .command-line code b {
-  color: lightblue;
+.command-block .command-image {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
 }
 
+.summoner-info-section {
+  position: relative;
+  height: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+.summoner-info-section .background-image-container {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  background: url("./assets/RedditConclusion.webp") no-repeat center center/cover;
+  overflow: hidden;
+}
+.summoner-info-section .background-image-container .blur-overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 70%, transparent 100%);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+}
+.summoner-info-section .content-container {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  color: #333;
+}
+.summoner-info-section .content-container .section-title {
+  font-size: 2rem;
+  color: inherit;
+  margin-bottom: 0.5rem;
+}
+.summoner-info-section .content-container .section-description {
+  font-size: 1rem;
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .summoner-info-section .content-container {
+    width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  .summoner-info-section .content-container {
+    left: 50%;
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .summoner-section .form-box {
+    width: 80%;
+  }
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .command-block {
